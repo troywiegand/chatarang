@@ -25,8 +25,8 @@ render(){
 
 addMessage = (body) => {
     const messages = [...this.state.messages]
-    messages.push({id: `You - ${Date.now()}`, userName: 'You', body: `${body}`})
-    this.setState({messages: messages})
+    messages.push({id: `You - ${Date.now()}`, userName: 'You', body})
+    this.setState({messages})
 }
 
 }
