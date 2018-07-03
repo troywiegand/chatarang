@@ -1,21 +1,23 @@
 import React from 'react'
 
-const Message = () => {
-
+const Message = (props) => {
+   
     return(
 
-        <div className="Message">
+        <div className="Message" >
         <div className="details">
           <div className="Metadata">
-            <div className="user">Davey</div>
-            <div className="time">1:10 PM</div>
+            <div className="user">{props.userName}</div>
+            <div className="time">{new Date().getHours()}:{new Date().getMinutes()}</div>
           </div>
           <div className="body">
-            Microceratus Blasisaurus Thescelosaurus Carnotaurus Leptospondylus Rajasaurus Edmarka
+            {props.message}
           </div>
         </div>
       </div>
     )
+
+    
 }
 
 
