@@ -18,9 +18,15 @@ render(){
         <div className="Chat">
             <ChatHeader />
             <MessageList messages={this.state.messages}/>
-            <MessageForm messages={this.state.messages}/>
+            <MessageForm messages={this.state.messages} addMessage={this.addMessage}/>
         </div>
     )
+}
+
+addMessage = (msg) => {
+    const messages = [...this.state.messages]
+    messages.push(msg)
+    this.setState({messages: messages})
 }
 
 }
