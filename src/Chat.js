@@ -9,8 +9,7 @@ class Chat extends Component{
     constructor(){
         super()
         this.state={messages: [
-            {id: 1, userName: 'troy', body: 'rtgh'},
-            {id: 2, userName: 'dante', body: 'coolsd'}
+            
         ]}
     }
 render(){
@@ -26,7 +25,7 @@ render(){
 addMessage = (body) => {
     const messages = [...this.state.messages]
     const user = this.props.userInfo;
-    messages.push({id: `${user.uid} - ${Date().now()}`, userName: `${user.displayName}`, body})
+    messages.push({id: `${user.uid} - ${Date.now()}`, userName: `${user.displayName}`, body})
     this.setState({messages})
 }
 
