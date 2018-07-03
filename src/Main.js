@@ -8,8 +8,8 @@ class Main extends Component{
 render(){
     return(
         <div className="main" style={styles}>
-            <Sidebar />
-            <Chat />
+            <Sidebar userInfo={this.props.userInfo}/>
+            <Chat userInfo={this.props.userInfo}/>
         </div>
     )
 }    

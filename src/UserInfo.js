@@ -10,7 +10,7 @@ render(){
         <div
           className="Avatar"
           ></div>
-        <div className="user">Davey</div>
+        <div className="user">{this.props.userInfo.displayName}</div>
         <a >
           <i className="fas fa-sign-out-alt"></i>
         </a>

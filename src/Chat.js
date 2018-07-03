@@ -25,7 +25,8 @@ render(){
 
 addMessage = (body) => {
     const messages = [...this.state.messages]
-    messages.push({id: `You - ${Date.now()}`, userName: 'You', body})
+    const user = this.props.userInfo;
+    messages.push({id: `${user.uid} - ${Date().now()}`, userName: `${user.displayName}`, body})
     this.setState({messages})
 }
 
