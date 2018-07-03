@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class ChatHeader extends Component{
-render(){
+
+const ChatHeader = () => {
+
     return(
 
-    <header class="ChatHeader">
-        <div class="roomInfo">
+    <header className="ChatHeader">
+        <div className="roomInfo">
           <h2>#general</h2>
           <p>Announcements and general chat</p>
         </div>
@@ -13,6 +14,6 @@ render(){
     )
 }
 
-}
+
 
 export default ChatHeader
