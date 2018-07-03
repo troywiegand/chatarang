@@ -4,7 +4,11 @@ class MessageForm extends Component{
 render(){
     return(
         <form className="MessageForm">
-        <input type="text" placeholder="Type a message... "/>
+        <input type="text" name="body" 
+                placeholder="Type a message... "
+                autoFocus
+                required
+                />
         <button type="submit">
             <i className="far fa-paper-plane" title="Send"></i>
         </button>
