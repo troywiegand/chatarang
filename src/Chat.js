@@ -16,7 +16,7 @@ render(){
     return(
         <div className="Chat" style={styles}>
             <ChatHeader />
-            <MessageList messages={this.state.messages}/>
+            <MessageList messages={this.state.messages} user={this.props.userInfo}/>
             <MessageForm messages={this.state.messages} addMessage={this.addMessage}/>
         </div>
     )
@@ -25,7 +25,7 @@ render(){
 addMessage = (body) => {
     const messages = [...this.state.messages]
     const user = this.props.userInfo;
-    messages.push({id: `${user.uid} - ${Date.now()}`, userName: `${user.displayName}`, body})
+    messages.push({id: `${user.uid} - ${Date.now()}`, userName: `${user.displayName}`, body, icon: `${user.icon}` })
     this.setState({messages})
 }
 

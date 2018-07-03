@@ -14,6 +14,7 @@ class App extends Component {
         uid: 'qwertyuiopasdfghjkl',
         displayName: 'TroyFromAce',
         email: 'troy@troywiegand.com',
+        icon: 0,
       }
     }
   }
@@ -37,13 +38,17 @@ addUser = (displayName, email) => {
   const user={
     uid: `${displayName}+${email}`,
     displayName,
-    email
+    email,
+    icon: this.randomIcon(),
   }
 
   this.setState({user: user})
   this.setState({loggedIn: true})
 }
 
+randomIcon(){
+  return ( Math.floor(Math.random() * 6) + 1 ) 
+}
 
 }
 

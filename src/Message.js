@@ -1,5 +1,7 @@
 import React from 'react'
 
+import IconGenerator from './IconGenerator'
+
 const Message = (props) => {
    
     return(
@@ -8,7 +10,7 @@ const Message = (props) => {
         <div
             className="Avatar"
           >
-          <i className="fas fa-bolt"></i>
+          <IconGenerator user={props.icon}/>
           </div>
         <div className="details" style={styles.details}>
           <div className="Metadata" style={styles.Metadata}>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import IconGenerator from './IconGenerator'
+
 class UserInfo extends Component{
 
     
@@ -13,7 +15,7 @@ render(){
           </div>
         <div className="user"
              style={styles.user}>
-             <i className="fas fa-bolt"></i>
+             <IconGenerator user={this.props.userInfo.icon}/>
                        {this.props.userInfo.displayName}
              </div>
         <a style={styles.a}>
