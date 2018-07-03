@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import ChatHeader from './ChatHeader'
 import MessageList from './MessageList'
+import MessageForm from './MessageForm'
 
 
 class Chat extends Component{
@@ -10,6 +11,7 @@ render(){
         <div className="Chat">
             <ChatHeader />
             <MessageList />
+            <MessageForm />
         </div>
     )
 }
