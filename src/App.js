@@ -28,10 +28,23 @@ class App extends Component {
        else{
          return(
           <div className="App">
-       <Login userInfo={this.state.user} loggedIn={this.state.loggedIn}/>
+       <Login addUser={this.addUser} />
        </div>
          )}  
   }
+
+addUser = (displayName, email) => {
+  const user={
+    uid: `${displayName}+${email}`,
+    displayName,
+    email
+  }
+
+  this.setState({user: user})
+  this.setState({loggedIn: true})
+}
+
+
 }
 
 export default App

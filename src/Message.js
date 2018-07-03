@@ -6,9 +6,9 @@ const Message = (props) => {
 
         <div className="Message" style={styles.Message} >
         <div
-            class="Avatar"
+            className="Avatar"
           >
-          <i class="fas fa-bolt"></i>
+          <i className="fas fa-bolt"></i>
           </div>
         <div className="details" style={styles.details}>
           <div className="Metadata" style={styles.Metadata}>

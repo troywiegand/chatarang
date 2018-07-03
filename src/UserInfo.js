@@ -13,7 +13,7 @@ render(){
           </div>
         <div className="user"
              style={styles.user}>
-             <i class="fas fa-bolt"></i>
+             <i className="fas fa-bolt"></i>
                        {this.props.userInfo.displayName}
              </div>
         <a style={styles.a}>
