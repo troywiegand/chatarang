@@ -23,9 +23,9 @@ render(){
     )
 }
 
-addMessage = (msg) => {
+addMessage = (body) => {
     const messages = [...this.state.messages]
-    messages.push(msg)
+    messages.push({id: `You - ${Date.now()}`, userName: 'You', body: `${body}`})
     this.setState({messages: messages})
 }
 

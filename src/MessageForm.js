@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 
 class MessageForm extends Component{
+
+state={
+    message: ''
+}
     handleSumbit= (ev) =>{
         ev.preventDefault()
-        const words= ev.target.body.value
-        this.props.addMessage(  {id: `You - ${Date.now()}`, userName: 'You', body: `${words}`})
+        this.props.addMessage(this.state.message)
+    }
+
+    handleChange = (ev) => {
+        this.setState({message: ev.target.value})
     }
     
 render(){
@@ -12,9 +19,12 @@ render(){
         <form onSubmit={this.handleSumbit}
         className="MessageForm">
         <input type="text" name="body" 
-                placeholder="Type a message... "
                 autoFocus
                 required
+                placeholder="Type a message... "
+                value={this.state.message}
+                onChange={this.handleChange}
+                
                 />
         <button type="submit">
             <i className="far fa-paper-plane" title="Send"></i>
