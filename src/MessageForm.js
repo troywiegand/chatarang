@@ -8,6 +8,7 @@ state={
     handleSumbit= (ev) =>{
         ev.preventDefault()
         this.props.addMessage(this.state.message)
+        this.setState({message: ' '})
     }
 
     handleChange = (ev) => {
