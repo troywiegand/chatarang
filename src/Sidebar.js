@@ -7,8 +7,8 @@ class Sidebar extends Component{
 render(){
     return(
         <div className="Sidebar" style={styles.sidebar}>
-            <UserInfo userInfo={this.props.userInfo}/>
-            <RoomList />
+            <UserInfo style={styles.children} userInfo={this.props.userInfo}/>
+            <RoomList style={styles.children} />
         </div>
     )
 }
@@ -29,12 +29,6 @@ const styles = {
       padding: '0 1rem',
     },
   
-    h1: {
-      color: 'white',
-      fontSize: '1.2rem',
-      marginTop: 0,
-      padding: '0 1rem',
-    }
   }
 
 export default Sidebar
