@@ -1,48 +1,59 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { StyleSheet, css } from 'aphrodite'
 
-
-class RoomList extends Component{
-render(){
-    return(
-        <div style={styles.children}>
-        
-      <nav className="RoomList" >
-        <h2 style={styles.h2}>Rooms</h2>
-        <ul style={styles.ul}>
-          <li style={styles.li}><a style={styles.lia}>♦general</a></li>
-          <li style={styles.li}><a style={styles.lia}>♦random</a></li>
-        </ul>
-      </nav>
-      </div>
-    )
+const RoomList = () => {
+  return (
+    <nav
+      className={`RoomList ${css(styles.roomList)}`}
+    >
+      <h2 className={css(styles.h2)}>Rooms</h2>
+      <ul className={css(styles.list)}>
+        <li>
+          <a href="#" className={css(styles.button)}>❖general</a>
+        </li>
+        <li>
+          <a href="#" className={css(styles.button)}>❖random</a>
+        </li>
+      </ul>
+    </nav>
+  )
 }
 
-}
+const styles = StyleSheet.create({
+  roomList: {
+    padding: '0 1rem',
+  },
 
-const styles ={
-  h2:{
+  h2: {
     fontSize: '1rem',
   },
 
-  ul:{
+  list: {
     listStyle: 'none',
     marginLeft: 0,
     paddingLeft: 0,
   },
 
-  li:{
-    marginBottom: '0.5rem'
+  heading: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
-  lia: {
-    display: 'block',
-    color: 'whitesmoke',
-    textDecoration: 'none'
-  },
+  button: {
+    border: 0,
+    backgroundColor: 'transparent',
+    outline: 0,
+    padding: 0,
+    color: 'rgba(255,255,255,0.4)',
+    fontSize: '1rem',
+    cursor: 'pointer',
+    transition: 'color 0.25s ease-out',
 
-  children: {
-    padding: '0 1rem',
+    ':hover': {
+      color: 'white',
+    }
   },
-}
+})
 
 export default RoomList
