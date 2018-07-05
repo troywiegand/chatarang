@@ -3,15 +3,27 @@ import React, { Component } from 'react'
 import ChatHeader from './ChatHeader'
 import MessageList from './MessageList'
 import MessageForm from './MessageForm'
+import base from './base'
+
 
 
 class Chat extends Component{
     constructor(){
         super()
-        this.state={messages: [
-            
-        ]}
+        
+        this.state={messages: []}
+    
     }
+
+    componentWillMount(){
+        base.syncState('messages',{
+            context: this,
+            state: 'messages',
+            asArray: true,
+        })
+    }
+
+
 render(){
     return(
         <div className="Chat" style={styles}>

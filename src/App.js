@@ -3,41 +3,36 @@ import React, { Component } from 'react'
 import './App.css'
 import Main from './Main'
 import Login from './Login'
+import firebase from 'firebase/app'
+
 
 class App extends Component {
   constructor(){
     super()
     const user = JSON.parse(localStorage.getItem('user'))
-
-    if(JSON.parse(localStorage.getItem('user'))===undefined)
-    {
+     
+    console.log(JSON.parse(localStorage.getItem('user')))
+ 
+   
+    
       this.state={
-        loggedIn: false,
+        loggedIn: (user.email!==undefined),
   
         user: user || {},
   
         currentRoom: ''
       }
-    }
-    else{
-      this.state={
-        loggedIn: false,
-  
-        user: user || {},
-  
-        currentRoom: ''
-      }
-    }
-    
-    
 
-    
+
   }
   render() {
 
       return (
         <div className="App">
+        <h1 id="test">
+           </h1>
         {
+           
           this.state.loggedIn
           ? <Main userInfo={this.state.user} signOut={this.signOut}/>
           :<Login addUser={this.addUser} />
@@ -52,11 +47,14 @@ addUser = (displayName, email) => {
     displayName,
     email,
   }
-
+   
   this.setState({user: user})
   this.setState({loggedIn: true})
-  localStorage.setItem('user', JSON.stringify(this.state.user))
+  console.log(JSON.stringify(this.state.user))
+   
+  localStorage.setItem('user', JSON.stringify(user))
 }
+
 
 signOut = () => {
   this.setState({loggedIn: false})

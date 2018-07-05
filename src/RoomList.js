@@ -9,10 +9,10 @@ const RoomList = () => {
       <h2 className={css(styles.h2)}>Rooms</h2>
       <ul className={css(styles.list)}>
         <li>
-          <a href="#" className={css(styles.button)}>❖general</a>
+          <a className={css(styles.button)}>❖general</a>
         </li>
         <li>
-          <a href="#" className={css(styles.button)}>❖random</a>
+          <a className={css(styles.button)}>❖random</a>
         </li>
       </ul>
     </nav>
