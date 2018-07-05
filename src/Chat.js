@@ -26,7 +26,7 @@ addMessage = (body) => {
     const messages = [...this.state.messages]
     const user = this.props.userInfo;
     messages.push({id: `${user.uid} - ${Date.now()}`, userName: `${user.displayName}`, 
-    body, icon: `${user.icon}`, time: `${new Date().getHours()}:${new Date().getMinutes()}` })
+    body, icon: `${user.icon}`, time: `${new Date().getHours()}:${new Date().getMinutes()}` , email:`${user.email}` })
     this.setState({messages})
 }
 

@@ -12,12 +12,11 @@ render(){
         <div
           className="Avatar"
           style={styles.Avatar} >
-           <IconGenerator user={this.props.userInfo.icon}/>
+           <IconGenerator user={this.props.userInfo.email}/>
           </div>
         <div className="user"
              style={styles.user}>
-            
-                       {this.props.userInfo.displayName}
+           {this.props.userInfo.displayName}
              </div>
         <a style={styles.a}>
           <i style={styles.i} className="fas fa-sign-out-alt"></i>
