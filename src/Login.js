@@ -40,7 +40,7 @@ class Login extends Component{
                        required 
                        value={this.state.displayName}
                        onChange={this.handleChangeName}/>
-                <input type="text" 
+                <input type="email" 
                        name="email"
                        placeholder="email"
                        required 
