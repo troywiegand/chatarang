@@ -22,18 +22,17 @@ class App extends Component {
   }
   render() {
 
-    if(this.state.loggedIn){
       return (
         <div className="App">
-        <Main userInfo={this.state.user} signOut={this.signOut}/>
+        {
+          this.state.loggedIn
+          ? <Main userInfo={this.state.user} signOut={this.signOut}/>
+          :<Login addUser={this.addUser} />
+        }
+        
+        
         </div>)
-    }
-       else{
-         return(
-          <div className="App">
-       <Login addUser={this.addUser} />
-       </div>
-         )}  
+ 
   }
 
 addUser = (displayName, email) => {
