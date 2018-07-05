@@ -5,17 +5,14 @@ import IconGenerator from './IconGenerator'
 const Message = (props) => {
    
     return(
-
         <div className="Message" style={styles.Message} >
-        <div
-            className="Avatar"
-          >
+        <div className="Avatar">
           <IconGenerator user={props.icon}/>
           </div>
         <div className="details" style={styles.details}>
           <div className="Metadata" style={styles.Metadata}>
             <div className="user" style={styles.user}>{props.userName}</div>
-            <div className="time" style={styles.time}>{new Date().getHours()}:{new Date().getMinutes()}</div>
+            <div className="time" style={styles.time}>{props.time}</div>
           </div>
           <div className="body">
             {props.message}

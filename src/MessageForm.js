@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class MessageForm extends Component{
 
 state={
-    message: ''
+    message: '',
 }
     handleSumbit= (ev) =>{
         ev.preventDefault()
