@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import IconGenerator from './IconGenerator'
+import SignOutButton from './SignOutButton'
 
 class UserInfo extends Component{
 
@@ -18,9 +19,7 @@ render(){
              style={styles.user}>
            {this.props.userInfo.displayName}
              </div>
-        <a style={styles.a}>
-          <i style={styles.i} className="fas fa-sign-out-alt"></i>
-        </a>
+        <SignOutButton />
       </div>
         </div>
     )
