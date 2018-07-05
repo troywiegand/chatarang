@@ -7,18 +7,31 @@ import Login from './Login'
 class App extends Component {
   constructor(){
     super()
-    this.state={
-      loggedIn: false,
+    const user = JSON.parse(localStorage.getItem('user'))
 
-      user: {
-        uid: 'qwertyuiopasdfghjkl',
-        displayName: 'TroyFromAce',
-        email: 'troy@troywiegand.com',
-        icon: 0,
-      },
-
-      currentRoom: ''
+    if(JSON.parse(localStorage.getItem('user'))===undefined)
+    {
+      this.state={
+        loggedIn: false,
+  
+        user: user || {},
+  
+        currentRoom: ''
+      }
     }
+    else{
+      this.state={
+        loggedIn: false,
+  
+        user: user || {},
+  
+        currentRoom: ''
+      }
+    }
+    
+    
+
+    
   }
   render() {
 
@@ -29,8 +42,6 @@ class App extends Component {
           ? <Main userInfo={this.state.user} signOut={this.signOut}/>
           :<Login addUser={this.addUser} />
         }
-        
-        
         </div>)
  
   }
@@ -44,11 +55,14 @@ addUser = (displayName, email) => {
 
   this.setState({user: user})
   this.setState({loggedIn: true})
+  localStorage.setItem('user', JSON.stringify(this.state.user))
 }
 
 signOut = () => {
   this.setState({loggedIn: false})
   this.setState({user: {}})
+  localStorage.removeItem('user')
+
 }
 
 
