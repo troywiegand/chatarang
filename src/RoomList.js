@@ -5,7 +5,7 @@ class RoomList extends Component{
 render(){
     return(
         <div style={styles.children}>
-        <h1 style={styles.h1}>XTBC 18</h1>
+        
       <nav className="RoomList" >
         <h2 style={styles.h2}>Rooms</h2>
         <ul style={styles.ul}>
@@ -38,13 +38,6 @@ const styles ={
     display: 'block',
     color: 'whitesmoke',
     textDecoration: 'none'
-  },
-
-  h1: {
-    color: 'white',
-    fontSize: '1.2rem',
-    marginTop: 0,
-    padding: '0 1rem',
   },
 
   children: {

@@ -8,8 +8,7 @@ class UserInfo extends Component{
     
 render(){
     return(
-        <div className="UserInfo" style={styles.UserInfo}>
-            <div className="UserInfo">
+        <div className="UserInfo" style={styles.UserInfo}>    
         <div
           className="Avatar"
           style={styles.Avatar} >
@@ -19,8 +18,7 @@ render(){
              style={styles.user}>
            {this.props.userInfo.displayName}
              </div>
-        <SignOutButton />
-      </div>
+        <SignOutButton signOut={this.props.signOut}/>
         </div>
     )
 }
@@ -29,6 +27,7 @@ render(){
 
 const styles ={
   UserInfo: {
+    padding: '0 1rem',
     marginBottom: '1rem',
     display: 'flex',
     alignItems: 'center',

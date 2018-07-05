@@ -15,7 +15,9 @@ class App extends Component {
         displayName: 'TroyFromAce',
         email: 'troy@troywiegand.com',
         icon: 0,
-      }
+      },
+
+      currentRoom: ''
     }
   }
   render() {
@@ -23,7 +25,7 @@ class App extends Component {
     if(this.state.loggedIn){
       return (
         <div className="App">
-        <Main userInfo={this.state.user}/>
+        <Main userInfo={this.state.user} signOut={this.signOut}/>
         </div>)
     }
        else{
@@ -39,16 +41,17 @@ addUser = (displayName, email) => {
     uid: `${displayName}+${email}`,
     displayName,
     email,
-    icon: this.randomIcon(),
   }
 
   this.setState({user: user})
   this.setState({loggedIn: true})
 }
 
-randomIcon(){
-  return ( Math.floor(Math.random() * 6) + 1 ) 
+signOut = () => {
+  this.setState({loggedIn: false})
+  this.setState({user: {}})
 }
+
 
 }
 

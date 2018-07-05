@@ -7,7 +7,8 @@ class Sidebar extends Component{
 render(){
     return(
         <div className="Sidebar" style={styles.sidebar}>
-            <UserInfo style={styles.children} userInfo={this.props.userInfo}/>
+        <h1 style={styles.h1}>XTBC 18</h1>
+            <UserInfo style={styles.children} userInfo={this.props.userInfo} signOut={this.props.signOut}/>
             <RoomList style={styles.children} />
         </div>
     )
@@ -28,6 +29,12 @@ const styles = {
     children: {
       padding: '0 1rem',
     },
+    h1: {
+        color: 'white',
+        fontSize: '1.2rem',
+        marginTop: 0,
+        padding: '0 1rem',
+      },
   
   }
 
