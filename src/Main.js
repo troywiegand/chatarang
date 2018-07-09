@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Sidebar from './Sidebar'
 import Chat from './Chat'
+import base from './base'
 
 
 class Main extends Component{
@@ -19,21 +20,17 @@ class Main extends Component{
             
         },
 
-        rooms: {
-            s3morning: {
-                name: 's3morning',
-                description: 'words words words',
-            },
-            general: {
-                name: 'general',
-                description: 'chat and whatnot'
-            },
-            anime: {
-                name: 'anime',
-                description: 'weeb stuff'
-            }
-        },
+        rooms: { },
     }}
+
+    componentDidMount(){
+        base.syncState('rooms',{
+            context: this,
+            state: 'rooms',
+            asArray: false,
+        }
+    )
+    }
 
     setCurrentRoom = (roomName)=>{
         this.rerenderChat()
