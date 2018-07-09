@@ -14,13 +14,10 @@ class Login extends Component{
   
    
 
-    authenticate = () => {
-        auth.signInWithPopup(googleProvider)
+    authenticate = (provider) => {
+        auth.signInWithPopup(provider)
     }
 
-    authenticateGithub = () => {
-        auth.signInWithPopup(githubProvider)
-    }
     
     render(){
         return(
@@ -34,13 +31,13 @@ class Login extends Component{
 
         <button
         type="button"
-        onClick={this.authenticate}>
+        onClick={()=> this.authenticate(googleProvider)}>
         Sign in with Google
         </button>
 
         <button
         type="button"
-        onClick={this.authenticateGithub}>
+        onClick={()=> this.authenticate(githubProvider)}>
         Sign in with Github
         </button>
         
