@@ -1,7 +1,12 @@
-import React from 'react'
+import React,  { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite'
+import RoomForm from './RoomForm'
 
-const RoomList = (props) => {
+class RoomList extends Component {
+
+state={showForm: false}
+
+render(){
   return (
     <nav
       className={`RoomList ${css(styles.roomList)}`}
@@ -9,10 +14,10 @@ const RoomList = (props) => {
       <h2 className={css(styles.h2)}>Rooms</h2>
       <ul className={css(styles.list)}>
         {
-          Object.keys(props.rooms).map(
+          Object.keys(this.props.rooms).map(
             roomName => (
               <li className={css(styles.item)} key={roomName}>
-                <a onClick={()=>props.setCurrentRoom(`${roomName}`)} className={css(styles.link)}>
+                <a onClick={()=>this.props.setCurrentRoom(`${roomName}`)} className={css(styles.link)}>
                   {roomName}
                 </a>
               </li>
@@ -20,10 +25,20 @@ const RoomList = (props) => {
           )
         }
       </ul>
+      <button onClick={(ev)=>{
+        debugger
+        ev.preventDefault()
+        this.setState({showForm:!this.state.showForm})
+        }}> Add a room </button>
+      {
+        this.state.showForm
+        ? <RoomForm/>
+        : <div />
+      }
     </nav>
   )
 }
-
+}
 
 
 const styles = StyleSheet.create({
