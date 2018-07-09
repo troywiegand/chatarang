@@ -6,7 +6,13 @@ import Chat from './Chat'
 
 class Main extends Component{
 
-    state={
+
+  constructor(){  
+    super()  
+    
+    this.state={
+        renderChat: true,
+
         room:{
             name: 's3morning',
             description: 'words words words',
@@ -27,20 +33,27 @@ class Main extends Component{
                 description: 'weeb stuff'
             }
         },
-    }
+    }}
 
     setCurrentRoom = (roomName)=>{
-        debugger
-        console.log(roomName)
+        this.rerenderChat()
         const room=this.state.rooms[roomName]
-        this.setState({room})
+        this.setState({room}, ()=>{this.rerenderChat()})
+    }
+
+    rerenderChat = ()=>{
+this.setState({renderChat: !(this.state.renderChat)})
     }
 
 render(){
     return(
         <div className="main" style={styles}>
             <Sidebar userInfo={this.props.userInfo} signOut={this.props.signOut} rooms={this.state.rooms} setCurrentRoom={this.setCurrentRoom}/>
-            <Chat userInfo={this.props.userInfo} room={this.state.room}/>
+
+            {this.state.renderChat
+            ? <Chat userInfo={this.props.userInfo} room={this.state.room}/>
+            : null
+            }
         </div>
     )
 }    
