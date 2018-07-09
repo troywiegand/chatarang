@@ -6,6 +6,10 @@ class RoomList extends Component {
 
 state={showForm: false}
 
+continueToShowForm= ()=>{
+  this.setState({showForm:!this.state.showForm})
+}
+
 render(){
   return (
     <nav
@@ -26,13 +30,13 @@ render(){
         }
       </ul>
       <button onClick={(ev)=>{
-        debugger
         ev.preventDefault()
         this.setState({showForm:!this.state.showForm})
         }}> Add a room </button>
       {
         this.state.showForm
-        ? <RoomForm/>
+        ? <RoomForm addRoom={this.props.addRoom} 
+        showForm={this.continueToShowForm}/>
         : <div />
       }
     </nav>

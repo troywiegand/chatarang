@@ -10,7 +10,10 @@ render(){
         
             <UserInfo style={styles.children} userInfo={this.props.userInfo} signOut={this.props.signOut}/>
             <h1 style={styles.h1}>XTBC 18</h1>
-            <RoomList style={styles.children} rooms={this.props.rooms} setCurrentRoom={this.props.setCurrentRoom}/>
+            <RoomList style={styles.children} 
+            rooms={this.props.rooms} 
+            setCurrentRoom={this.props.setCurrentRoom}
+            addRoom={this.props.addRoom}/>
         </div>
     )
 }

@@ -9,6 +9,20 @@ class RoomForm extends Component {
         
     }
 
+    handleSubmit = (ev) =>{
+        ev.preventDefault()
+        const roomName=this.state.name
+        const room={
+            [roomName]:{
+                name: this.state.name,
+                description: this.state.description
+            }
+        }
+        this.props.addRoom(room)
+    
+        this.props.showForm()
+    }
+
     handleChangeName = (ev) =>{
         ev.preventDefault()
         this.setState({ name : ev.target.value})
@@ -23,7 +37,7 @@ class RoomForm extends Component {
     render(){
         return (
         <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
 
             <input 
             type="text" name="name"
@@ -39,6 +53,7 @@ class RoomForm extends Component {
             onChange={this.handleChangeDescription}
             
             />
+            <button type="submit" />
 
             </form>
 

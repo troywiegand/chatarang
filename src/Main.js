@@ -38,6 +38,12 @@ class Main extends Component{
         this.setState({room}, ()=>{this.rerenderChat()})
     }
 
+    addRoom = (room)=>{
+        const oldRooms= {...this.state.rooms}
+        let mergedRooms={...oldRooms, ...room}
+        this.setState({rooms : mergedRooms})
+    }
+
     rerenderChat = ()=>{
 this.setState({renderChat: !(this.state.renderChat)})
     }
@@ -45,7 +51,8 @@ this.setState({renderChat: !(this.state.renderChat)})
 render(){
     return(
         <div className="main" style={styles}>
-            <Sidebar userInfo={this.props.userInfo} signOut={this.props.signOut} rooms={this.state.rooms} setCurrentRoom={this.setCurrentRoom}/>
+            <Sidebar addRoom={this.addRoom}
+            userInfo={this.props.userInfo} signOut={this.props.signOut} rooms={this.state.rooms} setCurrentRoom={this.setCurrentRoom}/>
 
             {this.state.renderChat
             ? <Chat userInfo={this.props.userInfo} room={this.state.room}/>
