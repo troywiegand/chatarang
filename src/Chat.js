@@ -16,7 +16,9 @@ class Chat extends Component{
     }
 
     componentWillMount(){
-        base.syncState('messages',{
+        console.log(`messages/${this.props.currentRoom}`)
+        debugger
+        base.syncState(`messages/${this.props.currentRoom}`,{
             context: this,
             state: 'messages',
             asArray: true,
@@ -37,6 +39,13 @@ render(){
 addMessage = (body) => {
     const messages = [...this.state.messages]
     const user = this.props.userInfo;
+    if(new Date().getMinutes() <10)
+    {
+        messages.push({id: `${user.uid} - ${Date.now()}`, userName: `${user.displayName}`, 
+        body, icon: `${user.icon}`, time: `${new Date().getHours()}:0${new Date().getMinutes()}` , email:`${user.email}` })
+        this.setState({messages})
+    }
+    else
     messages.push({id: `${user.uid} - ${Date.now()}`, userName: `${user.displayName}`, 
     body, icon: `${user.icon}`, time: `${new Date().getHours()}:${new Date().getMinutes()}` , email:`${user.email}` })
     this.setState({messages})

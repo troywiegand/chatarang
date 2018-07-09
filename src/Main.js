@@ -9,7 +9,7 @@ render(){
     return(
         <div className="main" style={styles}>
             <Sidebar userInfo={this.props.userInfo} signOut={this.props.signOut}/>
-            <Chat userInfo={this.props.userInfo}/>
+            <Chat userInfo={this.props.userInfo} currentRoom={this.props.currentRoom}/>
         </div>
     )
 }    
