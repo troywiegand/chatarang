@@ -33,6 +33,7 @@ addMessage = (body) => {
       id: `${user.uid}-${Date.now()}`,
       user,
       body,
+      time: `${new Date().getHours()}:${new Date().getMinutes()}`
     })
 
     this.setState({ messages })
