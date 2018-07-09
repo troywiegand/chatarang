@@ -16,7 +16,7 @@ class App extends Component {
    
     
       this.state={
-        loggedIn: (user.email!==undefined),
+        loggedIn: (user===undefined),
   
         user: user || {},
   
