@@ -7,11 +7,11 @@ const Message = (props) => {
     return(
         <div className="Message" style={styles.Message} >
         <div className="Avatar">
-          <IconGenerator user={props.email}/>
+          <IconGenerator user={props.user.email}/>
           </div>
         <div className="details" style={styles.details}>
           <div className="Metadata" style={styles.Metadata}>
-            <div className="user" style={styles.user}>{props.userName}</div>
+            <div className="user" style={styles.user}>{props.user.displayName}</div>
             <div className="time" style={styles.time}>{props.time}</div>
           </div>
           <div className="body">
