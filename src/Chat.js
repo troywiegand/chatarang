@@ -28,12 +28,18 @@ class Chat extends Component{
 addMessage = (body) => {
     const messages = [...this.state.messages]
     const user = this.props.userInfo
+    let time =''
+    if(new Date().getMinutes()<10)
+    {time=`0${new Date().getMinutes()}`}
+    else
+    {time=`${new Date().getMinutes()}`}
+
 
     messages.push({
       id: `${user.uid}-${Date.now()}`,
       user,
       body,
-      time: `${new Date().getHours()}:${new Date().getMinutes()}`
+      time: `${time}`,
     })
 
     this.setState({ messages })

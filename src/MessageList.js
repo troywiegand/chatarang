@@ -10,7 +10,7 @@ const MessageList = (props) => {
              <RoomAnnouncement room={props.room}/>
             
              {props.messages.map(msg => 
-             <Message  message={msg.body} key={msg.id}  time={msg.time} user={msg.user}/>)}
+             <Message  message={msg.body}  time={msg.time} user={msg.user}/>)}
         </div>
     )
 
