@@ -12,7 +12,7 @@ const RoomList = (props) => {
           Object.keys(props.rooms).map(
             roomName => (
               <li className={css(styles.item)} key={roomName}>
-                <a href="/" className={css(styles.link)}>
+                <a onClick={()=>props.setCurrentRoom(`${roomName}`)} className={css(styles.link)}>
                   {roomName}
                 </a>
               </li>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     textDecoration: 'none',
 
     '::before': {
-      content: '"# "',
+      content: '"❖ "',
     },
 
     ':hover': {

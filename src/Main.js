@@ -29,10 +29,17 @@ class Main extends Component{
         },
     }
 
+    setCurrentRoom = (roomName)=>{
+        debugger
+        console.log(roomName)
+        const room=this.state.rooms[roomName]
+        this.setState({room})
+    }
+
 render(){
     return(
         <div className="main" style={styles}>
-            <Sidebar userInfo={this.props.userInfo} signOut={this.props.signOut} rooms={this.state.rooms}/>
+            <Sidebar userInfo={this.props.userInfo} signOut={this.props.signOut} rooms={this.state.rooms} setCurrentRoom={this.setCurrentRoom}/>
             <Chat userInfo={this.props.userInfo} room={this.state.room}/>
         </div>
     )
