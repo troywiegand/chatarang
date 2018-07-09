@@ -5,8 +5,6 @@ import MessageList from './MessageList'
 import MessageForm from './MessageForm'
 import base from './base'
 
-
-
 class Chat extends Component{
     constructor(){
         super()
