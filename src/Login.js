@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {auth, googleProvider} from './base'
 
 class Login extends Component{
    constructor(){
@@ -24,6 +25,10 @@ class Login extends Component{
     handleChangeEmail = (ev) => {
         this.setState({email: ev.target.value})
     }
+
+    authenticate = () => {
+        auth.signInWithPopup(googleProvider)
+    }
     
     render(){
         return(
@@ -33,7 +38,8 @@ class Login extends Component{
             <br/>
             <br/>
             <br/>
-            <form onSubmit={this.handleSubmit}>
+            
+           {/* <form onSubmit={this.handleSubmit}>
                 <input type="text" 
                        name="displayName"
                        placeholder="Display Name"
@@ -50,7 +56,12 @@ class Login extends Component{
                        <br/>
                 <button type="submit">Submit </button>
 
-                </form>
+        </form> */}
+
+        <button
+        type="button">
+        Sign in with Google
+        </button>
         
             </center>
             </div>
