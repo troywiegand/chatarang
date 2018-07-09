@@ -16,14 +16,16 @@ class Chat extends Component{
     }
 
     componentWillMount(){
-        console.log(`messages/${this.props.currentRoom}`)
-        debugger
         base.syncState(`messages/${this.props.currentRoom}`,{
             context: this,
             state: 'messages',
             asArray: true,
         })
     }
+
+    componentWillUnmount() {
+        base.removeBinding(this.messagesRef)
+      }
 
 
 render(){
