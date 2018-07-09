@@ -11,20 +11,8 @@ class Login extends Component{
     }
    }
 
-    handleSubmit = (ev) => {
-        ev.preventDefault()
-        const dispName = ev.target.displayName.value
-        const em = ev.target.email.value
-        this.props.addUser( dispName,em );
-    }
   
-    handleChangeName = (ev) => {
-        this.setState({displayName: ev.target.value})
-    }
-    
-    handleChangeEmail = (ev) => {
-        this.setState({email: ev.target.value})
-    }
+   
 
     authenticate = () => {
         auth.signInWithPopup(googleProvider)
@@ -39,27 +27,10 @@ class Login extends Component{
             <br/>
             <br/>
             
-           {/* <form onSubmit={this.handleSubmit}>
-                <input type="text" 
-                       name="displayName"
-                       placeholder="Display Name"
-                       required 
-                       value={this.state.displayName}
-                       onChange={this.handleChangeName}/>
-                <input type="email" 
-                       name="email"
-                       placeholder="email"
-                       required 
-                       value={this.state.email}
-                       onChange={this.handleChangeEmail}/>
-                       <br/>
-                       <br/>
-                <button type="submit">Submit </button>
-
-        </form> */}
 
         <button
-        type="button">
+        type="button"
+        onClick={this.authenticate}>
         Sign in with Google
         </button>
         
