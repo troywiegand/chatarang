@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {auth, googleProvider} from './base'
+import {auth, googleProvider, githubProvider} from './base'
 
 class Login extends Component{
    constructor(){
@@ -17,6 +17,10 @@ class Login extends Component{
     authenticate = () => {
         auth.signInWithPopup(googleProvider)
     }
+
+    authenticateGithub = () => {
+        auth.signInWithPopup(githubProvider)
+    }
     
     render(){
         return(
@@ -32,6 +36,12 @@ class Login extends Component{
         type="button"
         onClick={this.authenticate}>
         Sign in with Google
+        </button>
+
+        <button
+        type="button"
+        onClick={this.authenticateGithub}>
+        Sign in with Github
         </button>
         
             </center>

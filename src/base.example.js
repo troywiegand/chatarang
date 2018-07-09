@@ -1,7 +1,8 @@
-import firebase from 'firebase/app'
 import Rebase from 're-base'
-import database from 'firebase/database'
+import firebase from 'firebase/app'
+import  'firebase/auth'
 
+import  'firebase/database'
 // Initialize Firebase
 const config = {
   apiKey: "YOUR API KEY",
@@ -13,10 +14,10 @@ const config = {
 }
 
 const app = firebase.initializeApp(config)
-const db = firebase.database(app)
+  const db = firebase.database(app)
 
-export const auth = firebase.auth()
-export const googleProvider= new firebase.auth.GoogleAuthProvider()
+  export const auth = firebase.auth()
+  export const googleProvider= new firebase.auth.GoogleAuthProvider()
+  export const githubProvider = new firebase.auth.GithubAuthProvider();
 
-
-export default Rebase.createClass(db)
+  export default Rebase.createClass(db)
