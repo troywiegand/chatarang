@@ -12,7 +12,7 @@ render(){
         <div
           className="Avatar"
           style={styles.Avatar} >
-           <IconGenerator user={this.props.userInfo.email}/>
+           <IconGenerator userImage={this.props.userInfo.photoUrl}/>
           </div>
         <div className="user"
              style={styles.user}>

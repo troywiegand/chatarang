@@ -52,7 +52,10 @@ render(){
     return(
         <div className="main" style={styles}>
             <Sidebar addRoom={this.addRoom}
-            userInfo={this.props.userInfo} signOut={this.props.signOut} rooms={this.state.rooms} setCurrentRoom={this.setCurrentRoom}/>
+            userInfo={this.props.userInfo} 
+            signOut={this.props.signOut} 
+            rooms={this.state.rooms} 
+            setCurrentRoom={this.setCurrentRoom}/>
 
             {this.state.renderChat
             ? <Chat userInfo={this.props.userInfo} room={this.state.room}/>

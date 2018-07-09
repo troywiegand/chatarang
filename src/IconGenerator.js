@@ -1,7 +1,7 @@
 import React from 'react'
 
 const IconGenerator = (props) => {
-   const imageUrl= `https://api.adorable.io/avatars/40/${props.user}.png`
+   const imageUrl= props.userImage
     
 
     return( <div style={{
