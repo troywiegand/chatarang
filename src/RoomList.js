@@ -1,23 +1,30 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-const RoomList = () => {
+const RoomList = (props) => {
   return (
     <nav
       className={`RoomList ${css(styles.roomList)}`}
     >
       <h2 className={css(styles.h2)}>Rooms</h2>
       <ul className={css(styles.list)}>
-        <li>
-          <a className={css(styles.button)}>❖general</a>
-        </li>
-        <li>
-          <a className={css(styles.button)}>❖random</a>
-        </li>
+        {
+          Object.keys(props.rooms).map(
+            roomName => (
+              <li className={css(styles.item)} key={roomName}>
+                <a href="/" className={css(styles.link)}>
+                  {roomName}
+                </a>
+              </li>
+            )
+          )
+        }
       </ul>
     </nav>
   )
 }
+
+
 
 const styles = StyleSheet.create({
   roomList: {
@@ -34,25 +41,22 @@ const styles = StyleSheet.create({
     paddingLeft: 0,
   },
 
-  heading: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  item: {
+    marginBottom: '0.5rem',
   },
 
-  button: {
-    border: 0,
-    backgroundColor: 'transparent',
-    outline: 0,
-    padding: 0,
-    color: 'rgba(255,255,255,0.4)',
-    fontSize: '1rem',
-    cursor: 'pointer',
-    transition: 'color 0.25s ease-out',
+  link: {
+    display: 'block',
+    color: 'whitesmoke',
+    textDecoration: 'none',
+
+    '::before': {
+      content: '"# "',
+    },
 
     ':hover': {
-      color: 'white',
-    }
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    },
   },
 })
 
