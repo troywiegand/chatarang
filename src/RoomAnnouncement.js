@@ -1,12 +1,12 @@
 import React from 'react'
 
-const RoomAnnouncement = () => {
+const RoomAnnouncement = (props) => {
 
     return(
 
     <div className="RoomAnnouncement" style={styles.roomAnnouncement}>
-        <h3 style={styles.h3}> #general</h3>
-        <p>This is the very beginning of the #general room.</p>
+        <h3 style={styles.h3}> {`❖${props.room.name}`}</h3>
+        <p>{`This is the very beginning of the ❖${props.room.name} room.`}</p>
       </div>
     )
 }

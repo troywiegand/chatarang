@@ -16,7 +16,6 @@ class App extends Component {
         
         user: user || {},
   
-        currentRoom: 'general'
       }
 
 
@@ -72,7 +71,7 @@ render() {
     {
        
       this.signedIn()
-      ? <Main userInfo={this.state.user} signOut={this.signOut} currentRoom={this.state.currentRoom}/>
+      ? <Main userInfo={this.state.user} signOut={this.signOut}/>
       :<Login  />
     }
     </div>)

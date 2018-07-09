@@ -5,11 +5,20 @@ import Chat from './Chat'
 
 
 class Main extends Component{
+
+    state={
+        room:{
+            name: 's3morning',
+            description: 'words words words',
+            
+        }
+    }
+
 render(){
     return(
         <div className="main" style={styles}>
             <Sidebar userInfo={this.props.userInfo} signOut={this.props.signOut}/>
-            <Chat userInfo={this.props.userInfo} currentRoom={this.props.currentRoom}/>
+            <Chat userInfo={this.props.userInfo} room={this.state.room}/>
         </div>
     )
 }    
