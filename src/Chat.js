@@ -30,9 +30,9 @@ addMessage = (body) => {
     const user = this.props.userInfo
     let time =''
     if(new Date().getMinutes()<10)
-    {time=`0${new Date().getMinutes()}`}
+    {time=`${new Date().getHours()}:0${new Date().getMinutes()}`}
     else
-    {time=`${new Date().getMinutes()}`}
+    {time=`${new Date().getHours()}:${new Date().getMinutes()}`}
 
 
     messages.push({

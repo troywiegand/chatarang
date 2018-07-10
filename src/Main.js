@@ -35,6 +35,7 @@ class Main extends Component{
     setCurrentRoom = (roomName)=>{
         this.rerenderChat()
         const room=this.state.rooms[roomName]
+        debugger
         this.setState({room}, ()=>{this.rerenderChat()})
     }
 
