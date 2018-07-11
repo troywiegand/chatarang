@@ -11,12 +11,11 @@ class RoomForm extends Component {
 
     handleSubmit = (ev) =>{
         ev.preventDefault()
-        const roomName=this.state.name
         const room={
-            [roomName]:{
+                description: this.state.description,
                 name: this.state.name,
-                description: this.state.description
-            }
+                
+            
         }
         this.props.addRoom(room)
     

@@ -61,7 +61,7 @@ class Main extends Component{
       addRoom = room => {
         const rooms = {...this.state.rooms}
         rooms[room.name] = room
-    
+   
         this.setState({ rooms })
       }
 
