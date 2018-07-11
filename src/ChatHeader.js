@@ -10,7 +10,6 @@ const ChatHeader = (props) => {
           <h2 style={styles.h2}>{`❖${props.room.name}`}</h2>
           <p style={styles.p}>{`❖${props.room.description}`}</p>
           <button onClick={()=>{
-            debugger
             props.removeRoom(props.room.name)}}> DELETE </button>
         </div>
       </header>

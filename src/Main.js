@@ -21,7 +21,11 @@ class Main extends Component{
         },
 
         rooms: { },
-    }}
+    }
+    
+   
+
+  }
 
     componentDidMount() {
         this.roomsRef = base.syncState(
@@ -35,7 +39,9 @@ class Main extends Component{
                 description: 'Chat about stuff',
               },
             },
-            then: this.setRoomFromRoute,
+            then: ()=>{ 
+              this.setRoomFromRoute
+              this.props.history.push(`/chat/rooms/${this.state.room.name}`)},
           }
         )
       }
