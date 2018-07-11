@@ -12,7 +12,7 @@ class MessageList extends Component {
     }
 
     scrollToBottom = ()=>{
-        this.messagesEnd.scrollIntoView({behavior: 'smooth'})
+        this.messagesEnd.scrollIntoView({behavior: 'auto'})
     }
 
     render(){

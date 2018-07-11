@@ -15,8 +15,8 @@ class Main extends Component{
         renderChat: true,
 
         room:{
-            name: 's3morning',
-            description: 'words words words',
+            name: 'general',
+            description: 'chat about stuff',
             
         },
 
