@@ -6,6 +6,15 @@ import Message from './Message'
 
 class MessageList extends Component {
 
+    componentDidUpdate(prevProps){
+        if(prevProps.messages.length<this.props.messages.length)
+        this.scrollToBottom()
+    }
+
+    scrollToBottom = ()=>{
+        this.messagesEnd.scrollIntoView({behavior: 'smooth'})
+    }
+
     render(){
         return(
         <div className="MessageList" style={styles.MessageList}>
@@ -13,6 +22,7 @@ class MessageList extends Component {
             
              {this.props.messages.map(msg => 
              <Message  message={msg.body}  time={msg.time} user={msg.user}/>)}
+             <div ref={el => this.messagesEnd = el}></div>
         </div>
     )
 }
