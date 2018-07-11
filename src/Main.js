@@ -64,6 +64,13 @@ class Main extends Component{
     
         this.setState({ rooms })
       }
+
+      removeRoom = roomName => {
+          const rooms= {...this.state.rooms}
+            rooms[roomName]=null
+
+          this.setState({ rooms }, this.loadValidRoom)
+      }
     
       setCurrentRoom = roomName => {
         const room = this.state.rooms[roomName]
@@ -90,14 +97,18 @@ this.setState({renderChat: !(this.state.renderChat)})
 render(){
     return(
         <div className="main" style={styles}>
-            <Sidebar addRoom={this.addRoom}
+            <Sidebar 
+            
+            addRoom={this.addRoom}
             userInfo={this.props.userInfo} 
             signOut={this.props.signOut} 
             rooms={this.state.rooms} 
             setCurrentRoom={this.setCurrentRoom}/>
 
             {this.state.renderChat
-            ? <Chat userInfo={this.props.userInfo} room={this.state.room}/>
+            ? <Chat userInfo={this.props.userInfo} 
+            room={this.state.room}
+            removeRoom={this.removeRoom}/>
             : null
             }
         </div>
