@@ -4,6 +4,7 @@ import {Route , Switch, Redirect} from 'react-router-dom'
 import './App.css'
 import Main from './Main'
 import Login from './Login'
+import SignUp from './SignUp'
 
 import base, {auth} from './base'
 
@@ -94,6 +95,13 @@ render() {
   return (
     <div className="App">
     <Switch>
+      <Route 
+      path='/sign-up'
+      render={() =>(
+        this.signedIn()
+        ? <Redirect to="/chat" />
+        : <SignUp />
+      )} />
       <Route path="/sign-in" 
       render = {()=>{
         return(

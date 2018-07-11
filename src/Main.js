@@ -40,7 +40,7 @@ class Main extends Component{
               },
             },
             then: ()=>{ 
-              this.setRoomFromRoute
+              this.setRoomFromRoute()
               this.props.history.push(`/chat/rooms/${this.state.room.name}`)},
           }
         )
