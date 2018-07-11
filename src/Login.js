@@ -52,14 +52,20 @@ class Login extends Component {
             </label>
             <input
               autoFocus
+              required
               type="email"
               name="email"
               className={css(styles.input)}
               value={this.state.email}
               onChange={this.handleChange}
             />
+             <label
+              htmlFor="password"
+             className={css(styles.label)}>
+              Password
+            </label>
             <input
-              autoFocus
+              required
               type="password"
               name="password"
               className={css(styles.input)}
