@@ -76,14 +76,20 @@ render() {
       render ={(navProps)=>{
         return(
           this.signedIn()
-          ? <Main userInfo={this.state.user} signOut={this.signOut} {...navProps} />
+          ? <Main 
+          userInfo={this.state.user} 
+          signOut={this.signOut} 
+          {...navProps} 
+          />
           : <Redirect to="/sign-in"/>)
       }}/>
       <Route path="/chat" 
       render ={(navProps)=>{
         return(
           this.signedIn()
-          ? <Main userInfo={this.state.user} signOut={this.signOut} {...navProps} />
+          ? <Main userInfo={this.state.user} 
+          signOut={this.signOut} 
+          {...navProps} />
           : <Redirect to="/sign-in"/>)
       }}/>
       <Route render ={()=>{

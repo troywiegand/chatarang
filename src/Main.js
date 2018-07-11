@@ -23,26 +23,65 @@ class Main extends Component{
         rooms: { },
     }}
 
-    componentDidMount(){
-        base.syncState('rooms',{
+    componentDidMount() {
+        this.roomsRef = base.syncState(
+          'rooms',
+          {
             context: this,
             state: 'rooms',
-            asArray: false,
+            defaultValue: {
+              general: {
+                name: 'general',
+                description: 'Chat about stuff',
+              },
+            },
+            then: this.setRoomFromRoute,
+          }
+        )
+      }
+    
+      componentDidUpdate(prevProps) {
+        const { roomName } = this.props.match.params
+        if (prevProps.match.params.roomName !== roomName) {
+          this.setRoomFromRoute()
         }
-    )
-    }
-
-    setCurrentRoom = (roomName)=>{
-        this.rerenderChat()
-        const room=this.state.rooms[roomName]
-        this.setState({room}, ()=>{this.rerenderChat()})
-    }
-
-    addRoom = (room)=>{
-        const oldRooms= {...this.state.rooms}
-        let mergedRooms={...oldRooms, ...room}
-        this.setState({rooms : mergedRooms})
-    }
+      }
+    
+      componentWillUnmount() {
+        base.removeBinding(this.roomsRef)
+      }
+    
+      setRoomFromRoute = () => {
+        const { roomName } = this.props.match.params
+        if (roomName) {
+          this.setCurrentRoom(roomName)
+        }
+      }
+    
+      addRoom = room => {
+        const rooms = {...this.state.rooms}
+        rooms[room.name] = room
+    
+        this.setState({ rooms })
+      }
+    
+      setCurrentRoom = roomName => {
+        const room = this.state.rooms[roomName]
+    
+        if (room) {
+          this.setState({ room })
+        } else {
+          this.loadValidRoom()
+        }
+      }
+    
+      loadValidRoom = () => {
+        const roomNames = Object.keys(this.state.rooms)
+        if (roomNames.length > 0) {
+          const roomName = roomNames[0]
+          this.props.history.push(`/chat/rooms/${roomName}`)
+        }
+      }
 
     rerenderChat = ()=>{
 this.setState({renderChat: !(this.state.renderChat)})
