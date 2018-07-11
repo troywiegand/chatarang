@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Route , Switch, Redirect} from 'react-router-dom'
 
 import './App.css'
 import Main from './Main'
@@ -11,14 +12,11 @@ class App extends Component {
   constructor(){
     super()
     const user = JSON.parse(localStorage.getItem('user'))
-      
       this.state={
         
         user: user || {},
   
       }
-
-
   }
 
   componentDidMount(){
@@ -66,14 +64,30 @@ render() {
 
   return (
     <div className="App">
-    <h1 id="test">
-       </h1>
-    {
-       
-      this.signedIn()
-      ? <Main userInfo={this.state.user} signOut={this.signOut}/>
-      :<Login  />
-    }
+    <Switch>
+      <Route path="/sign-in" 
+      render = {()=>{
+        return(
+        this.signedIn()
+        ? <Redirect to="/chat" />
+        : <Login/>)
+      }}/>
+      <Route path="/chat" 
+      render ={()=>{
+        return(
+          this.signedIn()
+          ? <Main userInfo={this.state.user} signOut={this.signOut}/>
+          : <Redirect to="/sign-in"/>)
+      }}/>
+      <Route render ={()=>{
+        return(
+          this.signedIn()
+          ? <Redirect to="/chat"/>
+          : <Redirect to="/sign-in"/>)
+      }}/>
+
+      </Switch>
+   
     </div>)
 
 }
