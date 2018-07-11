@@ -12,7 +12,6 @@ class Main extends Component{
     super()  
     
     this.state={
-        renderChat: true,
 
         room:{
             name: 'general',
@@ -90,10 +89,6 @@ class Main extends Component{
         }
       }
 
-    rerenderChat = ()=>{
-this.setState({renderChat: !(this.state.renderChat)})
-    }
-
 render(){
     return(
         <div className="main" style={styles}>
@@ -105,12 +100,10 @@ render(){
             rooms={this.state.rooms} 
             setCurrentRoom={this.setCurrentRoom}/>
 
-            {this.state.renderChat
-            ? <Chat userInfo={this.props.userInfo} 
+            <Chat userInfo={this.props.userInfo} 
             room={this.state.room}
             removeRoom={this.removeRoom}/>
-            : null
-            }
+            
         </div>
     )
 }    
