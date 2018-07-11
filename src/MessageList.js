@@ -21,7 +21,7 @@ class MessageList extends Component {
              <RoomAnnouncement room={this.props.room}/>
             
              {this.props.messages.map(msg => 
-             <Message  message={msg.body}  time={msg.time} user={msg.user}/>)}
+             <Message  message={msg.body}  time={msg.time} user={msg.user} key={msg.user+msg.body}/>)}
              <div ref={el => this.messagesEnd = el}></div>
         </div>
     )
