@@ -69,7 +69,7 @@ addMessage = (body) => {
         <div className="Chat" style={styles}>
             <ChatHeader room={this.props.room} removeRoom={this.props.removeRoom}/>
             <MessageList room={this.props.room} messages={this.state.messages} user={this.props.userInfo}/>
-            <MessageForm messages={this.state.messages} addMessage={this.addMessage}/>
+            <MessageForm  addMessage={this.addMessage}/>
         </div>
     )
 }

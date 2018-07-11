@@ -5,7 +5,7 @@ import './App.css'
 import Main from './Main'
 import Login from './Login'
 
-import {auth} from './base'
+import base, {auth} from './base'
 
 
 class App extends Component {
@@ -34,18 +34,43 @@ class App extends Component {
   }
  
 
-handleAuth = (oAuthUser) => {
-  const user = {
-    uid: oAuthUser.uid,
+  handleAuth = (oAuthUser) => {
+    const user = {
+      uid: oAuthUser.uid || oAuthUser.email,
       displayName: oAuthUser.displayName,
       email: oAuthUser.email,
       photoUrl: oAuthUser.photoURL,
+    }
+    this.syncUser(user)
+    localStorage.setItem('user', JSON.stringify(user))
   }
 
-   
-  this.setState({user: user})
-  localStorage.setItem('user', JSON.stringify(user))
-}
+  syncUser = user => {
+    this.userRef = base.syncState(
+      `users/${this.state.user.uid}`,
+      {
+        context: this,
+        state: 'user',
+        then: () => this.setState({ user })
+      }
+    )
+  }
+
+  updateUser = userData => {
+    console.log('trying')
+    const forbiddenAttributes = ['email', 'uid', 'password']
+    const user = {...this.state.user}
+
+    Object.keys(userData).forEach(
+      attribute => {
+        if (forbiddenAttributes.indexOf(attribute) === -1) {
+          user[attribute] = userData[attribute]
+        }
+      }
+    )
+
+    this.setState({ user })
+  }
 
 signedIn = () => {
   return this.state.user.uid
@@ -55,8 +80,12 @@ signOut = () => {
   auth.signOut()
 }
 
-handleUnauth = () =>{
-  this.setState({user: {}})
+handleUnauth = () => {
+  if (this.userRef) {
+    base.removeBinding(this.userRef)
+  }
+
+  this.setState({ user: {} })
   localStorage.removeItem('user')
 }
 

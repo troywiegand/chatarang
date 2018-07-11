@@ -22,9 +22,9 @@ render(){
           Object.keys(this.props.rooms).map(
             roomName => (
               <li className={css(styles.item)} key={roomName}>
-                <a onClick={()=>this.props.setCurrentRoom(`${roomName}`)} className={css(styles.link)}>
+                <NavLink to={`/chat/rooms/${roomName}`} className={css(styles.link)}>
                   {roomName}
-                </a>
+                </NavLink>
               </li>
             )
           )
