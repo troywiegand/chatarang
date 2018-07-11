@@ -1,19 +1,21 @@
-import React from 'react'
+import React, {Component} from 'react'
+
 
 import RoomAnnouncement from './RoomAnnouncement'
 import Message from './Message'
 
-const MessageList = (props) => {
+class MessageList extends Component {
 
-    return(
+    render(){
+        return(
         <div className="MessageList" style={styles.MessageList}>
-             <RoomAnnouncement room={props.room}/>
+             <RoomAnnouncement room={this.props.room}/>
             
-             {props.messages.map(msg => 
+             {this.props.messages.map(msg => 
              <Message  message={msg.body}  time={msg.time} user={msg.user}/>)}
         </div>
     )
-
+}
 }
 
 const styles = {
