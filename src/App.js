@@ -36,11 +36,15 @@ class App extends Component {
  
 
   handleAuth = (oAuthUser) => {
+  
+    let displayName = oAuthUser.email.substr(0,oAuthUser.email.indexOf("@"));
+
+
     const user = {
       uid: oAuthUser.uid || oAuthUser.email,
-      displayName: oAuthUser.displayName,
+      displayName: oAuthUser.displayName || displayName,
       email: oAuthUser.email,
-      photoUrl: oAuthUser.photoURL,
+      photoUrl: oAuthUser.photoURL || `https://api.adorable.io/avatars/40/${oAuthUser.email}.png`,
     }
     this.syncUser(user)
     localStorage.setItem('user', JSON.stringify(user))
